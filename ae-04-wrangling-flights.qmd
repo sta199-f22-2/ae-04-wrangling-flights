@@ -1,14 +1,14 @@
 ---
-title: "AE 03: Wrangling flights"
+title: "AE 04: Wrangling flights"
 categories: 
   - Application exercise
 editor: visual
 ---
 
 ::: callout-important
-Go to the [course GitHub organization](https://github.com/sta199-f22-1) and locate the repo titled `ae-03-YOUR_GITHUB_USERNAME` to get started.
+Go to the [course GitHub organization](https://github.com/sta199-f22-2) and locate the repo titled `ae-04-YOUR_GITHUB_USERNAME` to get started.
 
-This AE is due Friday, Sep 16 at 11:59pm.
+This AE is due Thursday, Sep 15 at 11:59pm.
 :::
 
 To demonstrate data wrangling we will use `flights`, a tibble in the **nycflights13** R package. It includes characteristics of all flights departing from New York City (JFK, LGA, EWR) in 2013.
@@ -175,7 +175,7 @@ When reading code "in English", say "and then" whenever you see a pipe.
 # add code here
 ```
 
--   **Your turn (5 minutes):** Create a data frame that only includes the plane tail number (`tailnum`), carrier (`carrier`), and departure delay for the flight with the longest departure delay. What is the plane tail number (`tailnum`) for this flight? *Share your response on Slack on the relevant thread on #general **using code formatting**.*
+-   **Your turn (5 minutes):** Create a data frame that only includes the plane tail number (`tailnum`), carrier (`carrier`), and departure delay for the flight with the longest departure delay. What is the plane tail number (`tailnum`) for this flight? 
 
 ```{r}
 #| label: longest-delay
@@ -221,7 +221,7 @@ We can do more complex tasks using logical operators:
 
 The final operator only makes sense if `x` is logical (TRUE / FALSE).
 
--   **Your turn (4 minutes):** Describe what the code is doing in words. *Share your response on Slack on the relevant thread on #general.*
+-   **Your turn (4 minutes):** Describe what the code is doing in words. 
 
 ```{r}
 #| label: nc-early
@@ -247,7 +247,7 @@ The final operator only makes sense if `x` is logical (TRUE / FALSE).
 # add code here
 ```
 
--   **Your turn (5 minutes):** On which date (month + day) was there the largest number of flights? How many flights were there on that day? *Share your response on Slack on the relevant thread on #general using code formatting.*
+-   **Your turn (5 minutes):** On which date (month + day) was there the largest number of flights? How many flights were there on that day? 
 
 ```{r}
 #| label: count-date
@@ -309,7 +309,7 @@ Here we find the mean and standard deviation of departure delay for each month.
 # add code here
 ```
 
--   **Your turn (4 minutes):** What is the median departure delay for each airports around NYC (`origin`)? Which airport has the shortest median departure delay? *Share your response on Slack on the relevant thread.*
+-   **Your turn (4 minutes):** What is the median departure delay for each airports around NYC (`origin`)? Which airport has the shortest median departure delay? 
 
 ```{r}
 #| label: dep-origin
