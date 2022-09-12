@@ -13,6 +13,8 @@ This AE is due Thursday, Sep 15 at 11:59pm.
 
 To demonstrate data wrangling we will use `flights`, a tibble in the **nycflights13** R package. It includes characteristics of all flights departing from New York City (JFK, LGA, EWR) in 2013.
 
+**Note: As we go through the AE, practicing thinking in steps, and reading your code as sentences**
+
 ```{r}
 #| label: load-packages
 #| message: false
