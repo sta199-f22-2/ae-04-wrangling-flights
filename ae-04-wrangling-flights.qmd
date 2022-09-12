@@ -61,7 +61,7 @@ Let's look at the differences in the output when we type `flights` (tibble) in t
 #| label: tibble-v-data-frame
 
 flights$apple
-cars$apple
+mtcars$apple
 ```
 
 # Data wrangling with `dplyr`
@@ -98,7 +98,9 @@ Quick summary of key dplyr functions[^1]:
 ```{r}
 #| label: select-vars
 
-# add code here
+flights |>
+  select(dep_delay, arr_delay)
+
 ```
 
 -   Demo: Make a data frame that keeps every variable except `dep_delay`.
@@ -106,7 +108,9 @@ Quick summary of key dplyr functions[^1]:
 ```{r}
 #| label: exclude-vars
 
-# add code here
+new.data <- flights |> 
+  select(-dep_delay)
+
 ```
 
 -   Demo: Make a data frame that includes all variables between `year` through `dep_delay` (inclusive). These are all variables that provide information about the departure of each flight.
@@ -114,7 +118,8 @@ Quick summary of key dplyr functions[^1]:
 ```{r}
 #| label: include-range
 
-# add code here
+flights |> 
+  select(dep_delay:year)
 ```
 
 -   Demo: Use the `select` helper `contains()` to make a data frame that includes the variables associated with the arrival, i.e., contains the string `"arr\_"` in the name.
@@ -122,7 +127,8 @@ Quick summary of key dplyr functions[^1]:
 ```{r}
 #| label: arr-vars
 
-# add code here
+flights |> 
+  select(contains("arr_"))
 ```
 
 ## The pipe
@@ -135,8 +141,10 @@ When reading code "in English", say "and then" whenever you see a pipe.
 
 ```{r}
 #| label: pipe-demo
+flights 
+  select(dep_delay) |>
+  head()
 
-# add code here
 ```
 
 ## `slice()`
@@ -145,16 +153,17 @@ When reading code "in English", say "and then" whenever you see a pipe.
 
 ```{r}
 #| label: slice
+flights |> 
+  slice(2:3)
 
-# add code here
 ```
 
 -   Demo: Display the last two rows of the `flights` data frame.
 
 ```{r}
 #| label: last-two
-
-# add code here
+flights |> 
+  slice((n()-1):n())
 ```
 
 ## `arrange()`
@@ -166,7 +175,8 @@ When reading code "in English", say "and then" whenever you see a pipe.
 ```{r}
 #| label: arrange-delays
 
-# add code here
+flights |>
+  arrange(desc(dep_delay))
 ```
 
 -   Demo: Now let's arrange the data by descending departure delay, so the flights with the longest departure delays will be at the top.
@@ -174,7 +184,8 @@ When reading code "in English", say "and then" whenever you see a pipe.
 ```{r}
 #| label: arrange-delays-desc
 
-# add code here
+flights |>
+  arrange(desc(dep_delay))
 ```
 
 -   **Your turn (5 minutes):** Create a data frame that only includes the plane tail number (`tailnum`), carrier (`carrier`), and departure delay for the flight with the longest departure delay. What is the plane tail number (`tailnum`) for this flight? 
@@ -182,7 +193,11 @@ When reading code "in English", say "and then" whenever you see a pipe.
 ```{r}
 #| label: longest-delay
 
-# add code here
+flights |>
+  select(tailnum, carrier, dep_delay) |>
+  arrange(desc(dep_delay)) |>
+  slice(1)
+  
 ```
 
 ## `filter()`
